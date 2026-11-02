@@ -125,17 +125,18 @@ flowchart LR
 - **SQL / PL/SQL Executed:**
   ```sql
   DECLARE
-      v_result VARCHAR2(200); v_status VARCHAR2(20); v_refund NUMBER;
+      v_result VARCHAR2(200); v_status VARCHAR2(20); v_refund NUMBER; v_tx_ref VARCHAR2(50);
   BEGIN
       P_CANCEL_RESERVATION(
-          p_pnr            => 'PNR1000000011',
-          p_result         => v_result,
-          p_booking_status => v_status,
-          p_refund_amount  => v_refund
+          p_pnr                   => 'PNR1000000011',
+          p_result                => v_result,
+          p_booking_status        => v_status,
+          p_refund_amount         => v_refund,
+          p_transaction_reference => v_tx_ref
       );
       COMMIT;
       DBMS_OUTPUT.PUT_LINE(v_result);
-      DBMS_OUTPUT.PUT_LINE('New Status: ' || v_status || ' | Refund Issued: INR ' || v_refund);
+      DBMS_OUTPUT.PUT_LINE('New Status: ' || v_status || ' | Refund Issued: INR ' || v_refund || ' | Ref: ' || v_tx_ref);
   END;
   /
   ```

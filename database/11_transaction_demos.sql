@@ -131,6 +131,7 @@ DECLARE
     v_result        VARCHAR2(200);
     v_status        VARCHAR2(20);
     v_refund_amt    NUMBER;
+    v_refund_tx     VARCHAR2(50);
     v_avail_after   NUMBER;
 BEGIN
     -- Locate the latest confirmed reservation on Schedule 2 (created in Transaction A)
@@ -142,10 +143,11 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('--- Step C1: Cancelling PNR ' || v_target_pnr || ' ---');
 
     P_CANCEL_RESERVATION(
-        p_pnr            => v_target_pnr,
-        p_result         => v_result,
-        p_booking_status => v_status,
-        p_refund_amount  => v_refund_amt
+        p_pnr                   => v_target_pnr,
+        p_result                => v_result,
+        p_booking_status        => v_status,
+        p_refund_amount         => v_refund_amt,
+        p_transaction_reference => v_refund_tx
     );
 
     DBMS_OUTPUT.PUT_LINE('Result Message  : ' || v_result);

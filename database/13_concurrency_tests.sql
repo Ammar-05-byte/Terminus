@@ -200,7 +200,7 @@ PROMPT ------------------------------------------------------------------------
 DECLARE
     v_res_id1 NUMBER; v_pnr1 VARCHAR2(15); v_fare1 NUMBER; v_stat1 VARCHAR2(20);
     v_res_id2 NUMBER; v_pnr2 VARCHAR2(15); v_fare2 NUMBER; v_stat2 VARCHAR2(20);
-    v_cancel_msg VARCHAR2(200); v_cancel_stat VARCHAR2(20); v_refund NUMBER;
+    v_cancel_msg VARCHAR2(200); v_cancel_stat VARCHAR2(20); v_refund NUMBER; v_cancel_tx VARCHAR2(50);
 BEGIN
     DBMS_OUTPUT.PUT_LINE('--- Step 4.1: Initial booking of Seat 5 on Schedule 2 ---');
     P_BOOK_TICKET(
@@ -219,10 +219,11 @@ BEGIN
 
     DBMS_OUTPUT.PUT_LINE('--- Step 4.2: Passenger cancels the booking ---');
     P_CANCEL_RESERVATION(
-        p_pnr            => v_pnr1,
-        p_result         => v_cancel_msg,
-        p_booking_status => v_cancel_stat,
-        p_refund_amount  => v_refund
+        p_pnr                   => v_pnr1,
+        p_result                => v_cancel_msg,
+        p_booking_status        => v_cancel_stat,
+        p_refund_amount         => v_refund,
+        p_transaction_reference => v_cancel_tx
     );
     DBMS_OUTPUT.PUT_LINE('Cancelled: ' || v_pnr1 || ' Status: ' || v_cancel_stat);
 

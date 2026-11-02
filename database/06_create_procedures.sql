@@ -1,7 +1,8 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Create transactional PL/SQL business procedures:
 --          1. P_BOOK_TICKET - End-to-end atomic ticket booking workflow
---          2. P_RECORD_PAYMENT - Payment gateway settlement & refund processing
+--          2. P_RECORD_PAYMENT - Payment gateway settlement and refund processing
 --          3. P_CANCEL_RESERVATION - Booking cancellation and refund triggering
 --          4. P_EXPIRE_STALE_RESERVATIONS - Batch cleanup of pending hold reservations
 -- CRITICAL: NO COMMIT inside any procedure; caller controls transactions.
@@ -153,7 +154,7 @@ BEGIN
                                     ' does not belong to train assigned to this schedule.');
     END;
 
-    -- 5. Validate source & destination stations belong to train route and get stop sequences
+    -- 5. Validate source and destination stations belong to train route and get stop sequences
     BEGIN
         SELECT stop_sequence INTO v_src_seq
         FROM TRAIN_STOP
@@ -249,15 +250,17 @@ END P_BOOK_TICKET;
 -- ----------------------------------------------------------------------------
 PROMPT Creating Procedure: P_CANCEL_RESERVATION...
 CREATE OR REPLACE PROCEDURE P_CANCEL_RESERVATION (
-    p_pnr            IN  VARCHAR2,
-    p_result         OUT VARCHAR2,
-    p_booking_status OUT VARCHAR2,
-    p_refund_amount  OUT NUMBER
+    p_pnr                   IN  VARCHAR2,
+    p_result                OUT VARCHAR2,
+    p_booking_status        OUT VARCHAR2,
+    p_refund_amount         OUT NUMBER,
+    p_transaction_reference OUT VARCHAR2
 )
 IS
     v_res_id         RESERVATION.reservation_id%TYPE;
     v_current_status RESERVATION.booking_status%TYPE;
     v_net_paid       NUMBER;
+    v_txn_ref        VARCHAR2(50) := NULL;
 BEGIN
     -- 1. Locate and lock reservation by PNR
     BEGIN
@@ -287,11 +290,30 @@ BEGIN
 
     -- 5. If successful payment exists, log REFUND_SUCCESS transaction
     IF v_net_paid > 0 THEN
-        P_RECORD_PAYMENT(v_res_id, v_net_paid, 'REFUND', 'REFUND_SUCCESS');
+        v_txn_ref := 'TXN' || LPAD(SEQ_TXN_REF.NEXTVAL, 12, '0');
+        INSERT INTO PAYMENT (
+            payment_id,
+            reservation_id,
+            amount,
+            payment_method,
+            payment_status,
+            transaction_reference,
+            payment_timestamp
+        ) VALUES (
+            SEQ_PAYMENT_ID.NEXTVAL,
+            v_res_id,
+            v_net_paid,
+            'REFUND',
+            'REFUND_SUCCESS',
+            v_txn_ref,
+            SYSTIMESTAMP
+        );
         p_refund_amount := v_net_paid;
+        p_transaction_reference := v_txn_ref;
         p_result := 'SUCCESS: Reservation ' || p_pnr || ' cancelled and refund of INR ' || v_net_paid || ' processed.';
     ELSE
         p_refund_amount := 0;
+        p_transaction_reference := NULL;
         p_result := 'SUCCESS: Reservation ' || p_pnr || ' cancelled. No payment was captured; refund amount is 0.';
     END IF;
 
