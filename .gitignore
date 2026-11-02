@@ -46,3 +46,12 @@ frontend/.vite/
 ### Oracle ###
 *.dmp
 *.trc
+
+### Academic Project Report Artifacts ###
+Database_Systems_Project_Report.docx
+*.docx
+generate_report.py
+report_assets/
+report_builder/
+~$*.docx
+.~lock.*#
