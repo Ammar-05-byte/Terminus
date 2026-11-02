@@ -1,10 +1,7 @@
 -- ============================================================================
--- SCRIPT: 13_concurrency_tests.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Simulates multi-session concurrency scenarios, race condition handling,
 --          pessimistic row locking, and double-booking prevention via the
 --          function-based unique index IDX_ACTIVE_SEAT_RESERVATION.
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;

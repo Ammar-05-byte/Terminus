@@ -1,13 +1,10 @@
 -- ============================================================================
--- SCRIPT: 06_create_procedures.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create transactional PL/SQL business procedures:
 --          1. P_BOOK_TICKET - End-to-end atomic ticket booking workflow
 --          2. P_RECORD_PAYMENT - Payment gateway settlement & refund processing
 --          3. P_CANCEL_RESERVATION - Booking cancellation and refund triggering
 --          4. P_EXPIRE_STALE_RESERVATIONS - Batch cleanup of pending hold reservations
 -- CRITICAL: NO COMMIT inside any procedure; caller controls transactions.
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 PROMPT ============================================================================

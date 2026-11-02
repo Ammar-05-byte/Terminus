@@ -1,10 +1,7 @@
 -- ============================================================================
--- SCRIPT: 14_constraint_tests.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Exhaustive validation harness verifying every Primary Key, Unique Key,
 --          Foreign Key, Check Constraint, Trigger Validation, and Unique Index
 --          in the schema. Confirms that invalid data is strictly rejected.
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;

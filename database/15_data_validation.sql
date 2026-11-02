@@ -1,13 +1,10 @@
 -- ============================================================================
--- SCRIPT: 15_data_validation.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Comprehensive verification of database state:
 --          1. Verifies that every business table contains at least 10 records.
 --          2. Confirms referential integrity (zero orphan records across FKs).
 --          3. Audits active reservations to confirm zero double-bookings.
 --          4. Validates that views return accurate aggregated data.
 --          5. Checks sequence alignment against MAX(id) values.
--- SYNTAX: Oracle PL/SQL / SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;

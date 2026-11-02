@@ -1,9 +1,6 @@
 -- ============================================================================
--- SCRIPT: run_all.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Master execution script running all 15 database components in
 --          strict sequential order.
--- USAGE: SQL> @run_all.sql
 -- ============================================================================
 
 SET ECHO OFF;

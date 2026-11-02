@@ -1,12 +1,9 @@
 -- ============================================================================
--- SCRIPT: 08_create_views.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create reporting and operational views:
 --          1. V_TRAIN_ROUTE - Complete ordered train itinerary with station stops
 --          2. V_RESERVATION_DETAILS - Comprehensive passenger booking itinerary
 --          3. V_PAYMENT_HISTORY - Audit log of payments, methods, and PNR links
 --          4. V_SCHEDULE_AVAILABILITY - Real-time seat availability per schedule
--- SYNTAX: Oracle SQL / Views
 -- ============================================================================
 
 PROMPT ============================================================================

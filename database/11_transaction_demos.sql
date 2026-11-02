@@ -1,10 +1,7 @@
 -- ============================================================================
--- SCRIPT: 11_transaction_demos.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Detailed practical demonstrations of Transactions A through E,
 --          illustrating explicit transaction boundaries, row-level locks,
 --          savepoints, commits, and rollbacks in Oracle PL/SQL.
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;

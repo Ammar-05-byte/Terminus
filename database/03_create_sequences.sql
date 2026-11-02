@@ -1,9 +1,6 @@
 -- ============================================================================
--- SCRIPT: 03_create_sequences.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create database sequences for generating surrogate keys, unique PNRs,
 --          and transaction reference identifiers.
--- SYNTAX: Oracle SQL / DDL
 -- ============================================================================
 
 PROMPT ============================================================================

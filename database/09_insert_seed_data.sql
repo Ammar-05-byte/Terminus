@@ -1,6 +1,4 @@
 -- ============================================================================
--- SCRIPT: 09_insert_seed_data.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Insert realistic, production-grade seed data across all 8 tables.
 --          - 15 Passengers
 --          - 12 Major Indian Stations
@@ -12,7 +10,6 @@
 --          - 18 Payment Transactions (SUCCESS, FAILED, REFUND_SUCCESS)
 --          Explicit IDs are used for consistent foreign key integrity.
 --          All sequences are automatically synced after insertion.
--- SYNTAX: Oracle SQL / PL/SQL
 -- ============================================================================
 
 PROMPT ============================================================================

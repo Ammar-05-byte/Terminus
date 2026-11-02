@@ -1,9 +1,6 @@
 -- ============================================================================
--- SCRIPT: 02_create_tables.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create the 8 core relational tables with primary keys, foreign keys,
 --          unique constraints, and check constraints.
--- SYNTAX: Oracle SQL / DDL
 -- ============================================================================
 
 PROMPT ============================================================================

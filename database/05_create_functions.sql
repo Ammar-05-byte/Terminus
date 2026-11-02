@@ -1,11 +1,8 @@
 -- ============================================================================
--- SCRIPT: 05_create_functions.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create business calculation and aggregation functions:
 --          1. F_CALCULATE_FARE - Computes distance- and class-based ticket fare
 --          2. F_AVAILABLE_SEAT_COUNT - Returns remaining available seats per schedule
 --          3. F_NET_PAID_AMOUNT - Calculates net successful payment for a reservation
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 PROMPT ============================================================================

@@ -1,9 +1,6 @@
 -- ============================================================================
--- SCRIPT: 04_create_indexes.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create performance B-tree indexes, foreign key lookup indexes,
 --          and the critical function-based unique index for active seat reservations.
--- SYNTAX: Oracle SQL / DDL
 -- ============================================================================
 
 PROMPT ============================================================================

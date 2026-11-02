@@ -1,9 +1,6 @@
 -- ============================================================================
--- SCRIPT: 01_reset_schema.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Safely drop all existing schema objects (views, triggers, procedures,
 --          functions, indexes, sequences, and tables) in reverse dependency order.
--- SYNTAX: Oracle SQL / PL/SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;

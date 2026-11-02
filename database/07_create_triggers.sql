@@ -1,11 +1,8 @@
 -- ============================================================================
--- SCRIPT: 07_create_triggers.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Create database triggers for business integrity validation and automated
 --          lifecycle synchronization:
 --          1. TRG_VALIDATE_RESERVATION - Route validity & seat ownership validation
 --          2. TRG_SYNC_RESERVATION_ON_PAYMENT - Auto-transition PENDING to CONFIRMED on payment
--- SYNTAX: Oracle PL/SQL / Triggers
 -- ============================================================================
 
 PROMPT ============================================================================

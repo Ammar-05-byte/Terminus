@@ -1,11 +1,8 @@
 -- ============================================================================
--- SCRIPT: 10_sql_queries.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Master suite of 18 analytical, operational, and audit SQL queries
 --          (Q01 to Q18) demonstrating complex relational DBMS features:
 --          joins, aggregations, window functions, analytic rankings, subqueries,
 --          date arithmetic, and integrity checks.
--- SYNTAX: Oracle SQL
 -- ============================================================================
 
 -- ============================================================================

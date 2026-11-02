@@ -1,12 +1,9 @@
 -- ============================================================================
--- SCRIPT: 12_acid_tests.sql
--- PROJECT: Railway Reservation System (Terminus DBMS)
 -- PURPOSE: Exhaustive validation of ACID properties in Oracle DBMS:
 --          1. ATOMICITY   - All-or-nothing execution & rollback verification
 --          2. CONSISTENCY - Enforcing business invariants, checks, and foreign keys
 --          3. ISOLATION   - Read committed consistency & pessimistic row-level locking
 --          4. DURABILITY  - Committed transactions survive and maintain integrity
--- SYNTAX: Oracle PL/SQL
 -- ============================================================================
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;
