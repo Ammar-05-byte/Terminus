@@ -86,7 +86,7 @@ BEGIN
         EXCEPTION
             WHEN NO_DATA_FOUND THEN
                 RAISE_APPLICATION_ERROR(-20005, 'Seat does not belong to the scheduled train.');
-        END IF;
+        END;
     END IF;
 END TRG_VALIDATE_RESERVATION;
 /

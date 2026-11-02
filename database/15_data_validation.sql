@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Comprehensive verification of database state:
 --          1. Verifies that every business table contains at least 10 records.

@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Simulates multi-session concurrency scenarios, race condition handling,
 --          pessimistic row locking, and double-booking prevention via the

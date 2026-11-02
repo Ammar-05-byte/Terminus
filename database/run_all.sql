@@ -4,6 +4,7 @@
 -- ============================================================================
 
 SET ECHO OFF;
+SET DEFINE OFF;
 SET FEEDBACK ON;
 SET SERVEROUTPUT ON SIZE UNLIMITED;
 SET LINESIZE 200;

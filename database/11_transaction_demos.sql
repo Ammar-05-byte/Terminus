@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Detailed practical demonstrations of Transactions A through E,
 --          illustrating explicit transaction boundaries, row-level locks,

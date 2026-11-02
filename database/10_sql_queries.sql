@@ -1,17 +1,21 @@
 -- ============================================================================
+SET DEFINE OFF;
 -- PURPOSE: Master suite of 18 analytical, operational, and audit SQL queries
 --          (Q01 to Q18) demonstrating complex relational DBMS features:
 --          joins, aggregations, window functions, analytic rankings, subqueries,
 --          date arithmetic, and integrity checks.
 -- ============================================================================
+SET DEFINE OFF;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q01: Search Available Trains Between Two Stations on a Specific Date
 -- PURPOSE: Finds all active trains and schedules running between a specified
 --          source and destination station where boarding sequence precedes
 --          deboarding sequence, calculating travel distance and duration.
 -- TABLES INVOLVED: TRAIN, TRAIN_SCHEDULE, TRAIN_STOP (src, dest), STATION (src, dest)
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q01: Search Available Trains Between Stations
 PROMPT ------------------------------------------------------------------------
@@ -50,11 +54,13 @@ EXEC :b_src_code := 'NDLS'; :b_dest_code := 'LKO'; :b_journey_date := TO_CHAR(SY
 /
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q02: Seat Availability Breakdown by Coach Class for a Given Schedule
 -- PURPOSE: Aggregates total physical seats, reserved seats, and available seats
 --          grouped by travel class (1A, 2A, 3A, SL, CC, EC, 2S) for a specific trip.
 -- TABLES INVOLVED: SEAT, TRAIN_SCHEDULE, RESERVATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q02: Seat Availability Breakdown by Coach Class
 PROMPT ------------------------------------------------------------------------
@@ -82,11 +88,13 @@ EXEC :b_schedule_id := 1;
 /
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q03: Comprehensive Passenger Booking History and Journey Itinerary
 -- PURPOSE: Retrieves complete travel history for a passenger, including train,
 --          PNR, journey date, assigned seat, stations, and payment status.
 -- TABLES INVOLVED: PASSENGER, RESERVATION, TRAIN_SCHEDULE, TRAIN, SEAT, STATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q03: Passenger Booking History and Journey Itinerary
 PROMPT ------------------------------------------------------------------------
@@ -122,11 +130,13 @@ EXEC :b_passenger_id := 1;
 /
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q04: Daily Station-wise Passenger Footfall and Revenue Report
 -- PURPOSE: Aggregates confirmed passenger departures and gross ticket revenue
 --          originating from each station within a given date window.
 -- TABLES INVOLVED: RESERVATION, STATION, TRAIN_SCHEDULE
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q04: Daily Station-wise Passenger Footfall and Revenue
 PROMPT ------------------------------------------------------------------------
@@ -148,11 +158,13 @@ GROUP BY s.station_code, s.station_name, s.city, sch.journey_date
 ORDER BY sch.journey_date, gross_revenue DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q05: Top 5 Busiest Train Routes by Total Ticket Volume
 -- PURPOSE: Identifies the top 5 most heavily traveled station-to-station corridors
 --          ranked by confirmed reservation counts.
 -- TABLES INVOLVED: RESERVATION, STATION (src, dest)
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q05: Top 5 Busiest Train Routes
 PROMPT ------------------------------------------------------------------------
@@ -176,11 +188,13 @@ WHERE route_rank <= 5
 ORDER BY total_bookings DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q06: Schedule Occupancy Rate and Capacity Utilization Analysis
 -- PURPOSE: Computes the load factor and percentage capacity utilization across
 --          all active train schedules to optimize fleet scheduling.
 -- TABLES INVOLVED: TRAIN_SCHEDULE, TRAIN, SEAT, RESERVATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q06: Schedule Occupancy Rate and Capacity Utilization
 PROMPT ------------------------------------------------------------------------
@@ -218,11 +232,13 @@ LEFT JOIN (
 ORDER BY utilization_pct DESC, sch.journey_date;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q07: Unconfirmed / Stale Pending Bookings Audit (Expiry Candidates)
 -- PURPOSE: Lists all reservations stuck in 'PENDING' status older than a given
 --          threshold in minutes, ready to be swept by P_EXPIRE_STALE_RESERVATIONS.
 -- TABLES INVOLVED: RESERVATION, PASSENGER, TRAIN_SCHEDULE, TRAIN
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q07: Unconfirmed / Stale Pending Bookings Audit
 PROMPT ------------------------------------------------------------------------
@@ -253,11 +269,13 @@ EXEC :b_stale_mins := 2;
 /
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q08: Passenger Travel Frequency and Loyalty Tier Classification
 -- PURPOSE: Analyzes passenger booking history and classifies travelers into
 --          Platinum, Gold, Silver, or Bronze loyalty tiers based on trip volume.
 -- TABLES INVOLVED: PASSENGER, RESERVATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q08: Passenger Loyalty Tier Classification
 PROMPT ------------------------------------------------------------------------
@@ -283,11 +301,13 @@ GROUP BY p.passenger_id, p.full_name, p.email, p.phone
 ORDER BY lifetime_confirmed_spend DESC, confirmed_trips DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q09: Payment Method Performance and Gateway Settlement Success Rate
 -- PURPOSE: Evaluates transaction processing efficiency across settlement channels
 --          (UPI, Card, Net Banking, Cash) measuring failure and success rates.
 -- TABLES INVOLVED: PAYMENT
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q09: Payment Method Performance & Settlement Success Rate
 PROMPT ------------------------------------------------------------------------
@@ -310,11 +330,13 @@ GROUP BY payment_method
 ORDER BY total_settled_amount DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q10: Refund Reconciliation and Audit Ledger
 -- PURPOSE: Audits cancelled tickets against refunded payments to ensure 100%
 --          financial reconciliation and identify pending refund discrepancies.
 -- TABLES INVOLVED: RESERVATION, PAYMENT, PASSENGER
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q10: Refund Reconciliation and Audit Ledger
 PROMPT ------------------------------------------------------------------------
@@ -351,11 +373,13 @@ WHERE r.booking_status = 'CANCELLED'
 ORDER BY r.reservation_id;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q11: Station Transit & Congestion Analysis (Originating, Terminating, Halts)
 -- PURPOSE: Quantifies rail traffic distribution per station: services originating,
 --          services terminating, and intermediate stopping services.
 -- TABLES INVOLVED: STATION, TRAIN_STOP, TRAIN
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q11: Station Transit and Congestion Analysis
 PROMPT ------------------------------------------------------------------------
@@ -380,11 +404,13 @@ GROUP BY s.station_code, s.station_name, s.city
 ORDER BY total_serviced_trains DESC, originating_trains DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q12: Class-wise Revenue Yield per Kilometer Analysis
 -- PURPOSE: Computes financial yields per passenger-kilometer across all travel
 --          classes (SL, 3A, 2A, 1A, CC, EC, 2S).
 -- TABLES INVOLVED: RESERVATION, SEAT, TRAIN_STOP (src, dest)
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q12: Class-wise Revenue Yield per Passenger-Kilometer
 PROMPT ------------------------------------------------------------------------
@@ -411,11 +437,13 @@ GROUP BY st.coach_class
 ORDER BY total_class_revenue DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q13: Longest Distance Journeys Booked vs System Average Trip Distance
 -- PURPOSE: Utilizes analytic window functions to benchmark individual journey
 --          lengths against the system-wide average travel distance.
 -- TABLES INVOLVED: RESERVATION, TRAIN_STOP (src, dest), PASSENGER, TRAIN, TRAIN_SCHEDULE
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q13: Longest Distance Journeys vs System Average
 PROMPT ------------------------------------------------------------------------
@@ -444,11 +472,13 @@ WHERE r.booking_status = 'CONFIRMED'
 ORDER BY journey_distance_km DESC;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q14: Integrity Audit: Active Seat Overlap & Double-Booking Audit
 -- PURPOSE: Database consistency check validating that no physical seat is
 --          concurrently booked in active status on the same schedule (must return 0 rows).
 -- TABLES INVOLVED: RESERVATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q14: Active Seat Overlap and Double-Booking Audit
 PROMPT ------------------------------------------------------------------------
@@ -466,11 +496,13 @@ GROUP BY schedule_id, seat_id
 HAVING COUNT(*) > 1;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q15: High-Value Passengers (VIP) with Preferred Payment Channels
 -- PURPOSE: Identifies passengers with cumulative spend exceeding INR 2000,
 --          determining their most frequently utilized payment method.
 -- TABLES INVOLVED: PASSENGER, RESERVATION, PAYMENT
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q15: High-Value Passengers with Preferred Payment Channels
 PROMPT ------------------------------------------------------------------------
@@ -526,11 +558,13 @@ EXEC :b_vip_threshold := 2000;
 /
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q16: Train Halt Duration and Technical Stop Schedule Analysis
 -- PURPOSE: Calculates the scheduled dwell time (in minutes) at each intermediate
 --          station stop along train routes to detect bottlenecks.
 -- TABLES INVOLVED: TRAIN, TRAIN_STOP, STATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q16: Train Halt Duration and Technical Stop Analysis
 PROMPT ------------------------------------------------------------------------
@@ -554,11 +588,13 @@ WHERE ts.arrival_time IS NOT NULL
 ORDER BY t.train_number, ts.stop_sequence;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q17: Peak Journey Day Analysis by Day of Week
 -- PURPOSE: Aggregates historical and scheduled passenger booking demand by day
 --          of the week to assist fleet operations with rolling stock planning.
 -- TABLES INVOLVED: TRAIN_SCHEDULE, RESERVATION
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q17: Peak Journey Day Analysis by Day of Week
 PROMPT ------------------------------------------------------------------------
@@ -577,11 +613,13 @@ GROUP BY TO_CHAR(sch.journey_date, 'FMDAY'), TO_NUMBER(TO_CHAR(sch.journey_date,
 ORDER BY day_index;
 
 -- ============================================================================
+SET DEFINE OFF;
 -- Q18: Schedule Coach & Berth Allocation Matrix (Real-Time Seat Map)
 -- PURPOSE: Produces a complete seat map matrix for a given schedule showing every
 --          coach, seat number, berth type, and its current reservation status.
 -- TABLES INVOLVED: SEAT, TRAIN_SCHEDULE, RESERVATION, PASSENGER
 -- ============================================================================
+SET DEFINE OFF;
 PROMPT ------------------------------------------------------------------------
 PROMPT Q18: Schedule Coach and Berth Allocation Matrix (Seat Map)
 PROMPT ------------------------------------------------------------------------

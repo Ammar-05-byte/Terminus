@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Exhaustive validation of ACID properties in Oracle DBMS:
 --          1. ATOMICITY   - All-or-nothing execution & rollback verification

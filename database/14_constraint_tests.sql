@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 -- ============================================================================
 -- PURPOSE: Exhaustive validation harness verifying every Primary Key, Unique Key,
 --          Foreign Key, Check Constraint, Trigger Validation, and Unique Index
