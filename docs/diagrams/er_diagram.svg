@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="crowfoot" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 M 12 6 L 0 6" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+    </marker>
+    <marker id="one" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <line x1="5" y1="0" x2="5" y2="10" stroke="#2563eb" stroke-width="2"/>
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="40" y="25" width="1320" height="70" rx="8" fill="#1e3a5f" filter="url(#shadow)"/>
+  <text x="70" y="60" fill="#ffffff" font-size="22" font-weight="bold">TERMINUS RAILWAY RESERVATION SYSTEM — COMPLETE RELATIONAL ER MODEL</text>
+  <text x="70" y="82" fill="#93c5fd" font-size="13">BCSE302L Database Management Systems | Exactly 8 Relational Entities | Oracle 19c Enterprise Architecture</text>
+
+  <!-- TABLE 1: PASSENGER -->
+  <g transform="translate(50, 140)" filter="url(#shadow)">
+    <rect width="260" height="200" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 254 0 Q 260 0 260 6 L 260 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">PASSENGER</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 passenger_id</text><text x="180" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="250" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#334155">full_name</text><text x="165" y="88" font-size="11" fill="#64748b">VARCHAR2(100)</text>
+    <text x="15" y="110" font-size="12" fill="#334155">date_of_birth</text><text x="180" y="110" font-size="11" fill="#64748b">DATE</text>
+    <text x="15" y="132" font-size="12" fill="#334155">gender</text><text x="180" y="132" font-size="11" fill="#64748b">VARCHAR2(10)</text>
+    <text x="15" y="154" font-size="12" fill="#0284c7">phone</text><text x="165" y="154" font-size="11" fill="#64748b">VARCHAR2(15) [UK]</text>
+    <text x="15" y="176" font-size="12" fill="#0284c7">email</text><text x="160" y="176" font-size="11" fill="#64748b">VARCHAR2(100) [UK]</text>
+  </g>
+
+  <!-- TABLE 2: STATION -->
+  <g transform="translate(1090, 140)" filter="url(#shadow)">
+    <rect width="260" height="180" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 254 0 Q 260 0 260 6 L 260 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">STATION</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 station_id</text><text x="180" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="250" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#0284c7">station_code</text><text x="165" y="88" font-size="11" fill="#64748b">VARCHAR2(10) [UK]</text>
+    <text x="15" y="110" font-size="12" fill="#334155">station_name</text><text x="165" y="110" font-size="11" fill="#64748b">VARCHAR2(100)</text>
+    <text x="15" y="132" font-size="12" fill="#334155">city</text><text x="180" y="132" font-size="11" fill="#64748b">VARCHAR2(50)</text>
+    <text x="15" y="154" font-size="12" fill="#334155">state</text><text x="180" y="154" font-size="11" fill="#64748b">VARCHAR2(50)</text>
+  </g>
+
+  <!-- TABLE 3: TRAIN -->
+  <g transform="translate(570, 140)" filter="url(#shadow)">
+    <rect width="260" height="180" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 254 0 Q 260 0 260 6 L 260 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">TRAIN</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 train_id</text><text x="180" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="250" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#0284c7">train_number</text><text x="165" y="88" font-size="11" fill="#64748b">VARCHAR2(10) [UK]</text>
+    <text x="15" y="110" font-size="12" fill="#334155">train_name</text><text x="165" y="110" font-size="11" fill="#64748b">VARCHAR2(100)</text>
+    <text x="15" y="132" font-size="12" fill="#334155">train_type</text><text x="180" y="132" font-size="11" fill="#64748b">VARCHAR2(30)</text>
+    <text x="15" y="154" font-size="12" fill="#334155">active_status</text><text x="180" y="154" font-size="11" fill="#64748b">VARCHAR2(10)</text>
+  </g>
+
+  <!-- TABLE 4: TRAIN_STOP -->
+  <g transform="translate(830, 390)" filter="url(#shadow)">
+    <rect width="260" height="200" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 254 0 Q 260 0 260 6 L 260 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">TRAIN_STOP</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 train_id</text><text x="165" y="58" font-size="11" fill="#64748b">NUMBER [PK, FK]</text>
+    <text x="15" y="78" font-size="12" fill="#d97706" font-weight="bold">🔑 stop_sequence</text><text x="180" y="78" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="88" x2="250" y2="88" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="108" font-size="12" fill="#2563eb">station_id</text><text x="175" y="108" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="130" font-size="12" fill="#334155">arrival_time</text><text x="180" y="130" font-size="11" fill="#64748b">VARCHAR2(5)</text>
+    <text x="15" y="152" font-size="12" fill="#334155">departure_time</text><text x="180" y="152" font-size="11" fill="#64748b">VARCHAR2(5)</text>
+    <text x="15" y="174" font-size="12" fill="#334155">distance_from_origin</text><text x="190" y="174" font-size="11" fill="#64748b">NUMBER</text>
+  </g>
+
+  <!-- TABLE 5: TRAIN_SCHEDULE -->
+  <g transform="translate(570, 410)" filter="url(#shadow)">
+    <rect width="240" height="180" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 234 0 Q 240 0 240 6 L 240 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">TRAIN_SCHEDULE</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 schedule_id</text><text x="160" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="230" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#2563eb">train_id</text><text x="160" y="88" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="110" font-size="12" fill="#334155">journey_date</text><text x="180" y="110" font-size="11" fill="#64748b">DATE</text>
+    <text x="15" y="132" font-size="12" fill="#334155">scheduled_departure</text><text x="170" y="132" font-size="11" fill="#64748b">TIMESTAMP</text>
+    <text x="15" y="154" font-size="12" fill="#334155">schedule_status</text><text x="170" y="154" font-size="11" fill="#64748b">VARCHAR2(20)</text>
+  </g>
+
+  <!-- TABLE 6: SEAT -->
+  <g transform="translate(310, 410)" filter="url(#shadow)">
+    <rect width="240" height="180" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 234 0 Q 240 0 240 6 L 240 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">SEAT</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 seat_id</text><text x="160" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="230" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#2563eb">train_id</text><text x="160" y="88" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="110" font-size="12" fill="#334155">coach_number</text><text x="160" y="110" font-size="11" fill="#64748b">VARCHAR2(10)</text>
+    <text x="15" y="132" font-size="12" fill="#334155">seat_number</text><text x="180" y="132" font-size="11" fill="#64748b">NUMBER</text>
+    <text x="15" y="154" font-size="12" fill="#334155">coach_class</text><text x="170" y="154" font-size="11" fill="#64748b">VARCHAR2(10)</text>
+  </g>
+
+  <!-- TABLE 7: RESERVATION -->
+  <g transform="translate(380, 680)" filter="url(#shadow)">
+    <rect width="360" height="240" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 354 0 Q 360 0 360 6 L 360 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">RESERVATION</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 reservation_id</text><text x="260" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="350" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#0284c7">pnr</text><text x="240" y="88" font-size="11" fill="#64748b">VARCHAR2(15) [UK]</text>
+    <text x="15" y="108" font-size="12" fill="#2563eb">passenger_id</text><text x="260" y="108" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="128" font-size="12" fill="#2563eb">schedule_id</text><text x="260" y="128" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="148" font-size="12" fill="#2563eb">seat_id</text><text x="260" y="148" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="168" font-size="12" fill="#2563eb">source_station_id</text><text x="260" y="168" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="188" font-size="12" fill="#2563eb">destination_station_id</text><text x="260" y="188" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="208" font-size="12" fill="#334155">booking_status</text><text x="260" y="208" font-size="11" fill="#64748b">VARCHAR2(20)</text>
+    <text x="15" y="228" font-size="12" fill="#334155">fare_amount</text><text x="260" y="228" font-size="11" fill="#64748b">NUMBER(10,2)</text>
+  </g>
+
+  <!-- TABLE 8: PAYMENT -->
+  <g transform="translate(850, 680)" filter="url(#shadow)">
+    <rect width="280" height="200" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 6 Q 0 0 6 0 L 274 0 Q 280 0 280 6 L 280 38 L 0 38 Z" fill="#1e3a5f"/>
+    <text x="15" y="25" fill="#ffffff" font-weight="bold" font-size="14">PAYMENT</text>
+    <text x="15" y="58" font-size="12" fill="#d97706" font-weight="bold">🔑 payment_id</text><text x="190" y="58" font-size="11" fill="#64748b">NUMBER [PK]</text>
+    <line x1="10" y1="68" x2="270" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="88" font-size="12" fill="#2563eb">reservation_id</text><text x="190" y="88" font-size="11" fill="#64748b">NUMBER [FK]</text>
+    <text x="15" y="110" font-size="12" fill="#334155">amount</text><text x="190" y="110" font-size="11" fill="#64748b">NUMBER(10,2)</text>
+    <text x="15" y="132" font-size="12" fill="#334155">payment_method</text><text x="190" y="132" font-size="11" fill="#64748b">VARCHAR2(20)</text>
+    <text x="15" y="154" font-size="12" fill="#334155">payment_status</text><text x="190" y="154" font-size="11" fill="#64748b">VARCHAR2(20)</text>
+    <text x="15" y="176" font-size="12" fill="#0284c7">transaction_reference</text><text x="165" y="176" font-size="11" fill="#64748b">VARCHAR2(50) [UK]</text>
+  </g>
+
+  <!-- RELATIONSHIP PATHS & LABELS -->
+  <!-- 1. PASSENGER -> RESERVATION -->
+  <path d="M 180 340 L 180 770 L 380 770" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <rect x="195" y="755" width="65" height="20" rx="3" fill="#e0e7ff"/>
+  <text x="200" y="769" font-size="11" fill="#1e40af" font-weight="bold">1 : N (books)</text>
+
+  <!-- 2. TRAIN -> TRAIN_STOP -->
+  <path d="M 740 320 L 740 460 L 830 460" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="745" y="450" font-size="10" fill="#1e40af" font-weight="bold">1 : N</text>
+
+  <!-- 3. STATION -> TRAIN_STOP -->
+  <path d="M 1200 320 L 1200 480 L 1090 480" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="1115" y="475" font-size="10" fill="#1e40af" font-weight="bold">1 : N</text>
+
+  <!-- 4. TRAIN -> TRAIN_SCHEDULE -->
+  <path d="M 670 320 L 670 410" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="675" y="370" font-size="10" fill="#1e40af" font-weight="bold">1 : N</text>
+
+  <!-- 5. TRAIN -> SEAT -->
+  <path d="M 600 320 L 600 360 L 430 360 L 430 410" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="440" y="385" font-size="10" fill="#1e40af" font-weight="bold">1 : N</text>
+
+  <!-- 6. TRAIN_SCHEDULE -> RESERVATION -->
+  <path d="M 650 590 L 650 680" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="655" y="635" font-size="10" fill="#1e40af" font-weight="bold">1 : N</text>
+
+  <!-- 7. SEAT -> RESERVATION -->
+  <path d="M 430 590 L 430 680" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <text x="435" y="635" font-size="10" fill="#1e40af" font-weight="bold">1 : N (opt)</text>
+
+  <!-- 8 & 9. STATION -> RESERVATION (Source and Destination) -->
+  <path d="M 1220 320 L 1220 935 L 740 935" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#crowfoot)"/>
+  <text x="1080" y="925" font-size="10" fill="#065f46" font-weight="bold">1 : N (src &amp; dest)</text>
+
+  <!-- 10. RESERVATION -> PAYMENT -->
+  <path d="M 740 760 L 850 760" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#crowfoot)"/>
+  <rect x="755" y="745" width="80" height="20" rx="3" fill="#e0e7ff"/>
+  <text x="760" y="759" font-size="11" fill="#1e40af" font-weight="bold">1 : N (settles)</text>
+</svg>

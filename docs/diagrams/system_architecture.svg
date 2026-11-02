@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="flowarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="40" y="25" width="1120" height="70" rx="8" fill="#1e3a5f" filter="url(#shadow)"/>
+  <text x="70" y="60" fill="#ffffff" font-size="22" font-weight="bold">TERMINUS — THREE-TIER SYSTEM DEPLOYMENT ARCHITECTURE</text>
+  <text x="70" y="82" fill="#93c5fd" font-size="13">React 18 SPA (Presentation) | Spring Boot 3 &amp; Native JDBC (Business) | Oracle 19c Enterprise DBMS (Data)</text>
+
+  <!-- TIER 1: CLIENT PRESENTATION TIER -->
+  <g transform="translate(50, 130)" filter="url(#shadow)">
+    <rect width="1100" height="170" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+    <path d="M 0 8 Q 0 0 8 0 L 1092 0 Q 1100 0 1100 8 L 1100 36 L 0 36 Z" fill="#0284c7"/>
+    <text x="20" y="24" fill="#ffffff" font-weight="bold" font-size="14">TIER 1: PRESENTATION TIER (React 18 + TypeScript + Vite + Tailwind CSS) [Port: 5173]</text>
+
+    <!-- UI Component Boxes -->
+    <rect x="30" y="55" width="155" height="95" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="40" y="80" font-size="12" font-weight="bold" fill="#0369a1">Search &amp; Routes</text>
+    <text x="40" y="100" font-size="11" fill="#0284c7">• Train Search Form</text>
+    <text x="40" y="118" font-size="11" fill="#0284c7">• Route Timetable</text>
+    <text x="40" y="136" font-size="11" fill="#0284c7">• Intermediate Stops</text>
+
+    <rect x="210" y="55" width="155" height="95" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="220" y="80" font-size="12" font-weight="bold" fill="#0369a1">Seat Inventory</text>
+    <text x="220" y="100" font-size="11" fill="#0284c7">• Coach Class Grid</text>
+    <text x="220" y="118" font-size="11" fill="#0284c7">• Availability Badges</text>
+    <text x="220" y="136" font-size="11" fill="#0284c7">• Real-time Counters</text>
+
+    <rect x="390" y="55" width="155" height="95" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="400" y="80" font-size="12" font-weight="bold" fill="#0369a1">Booking Wizard</text>
+    <text x="400" y="100" font-size="11" fill="#0284c7">• 5-Step Process</text>
+    <text x="400" y="118" font-size="11" fill="#0284c7">• Fare Calculation</text>
+    <text x="400" y="136" font-size="11" fill="#0284c7">• Payment Simulator</text>
+
+    <rect x="570" y="55" width="155" height="95" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="580" y="80" font-size="12" font-weight="bold" fill="#0369a1">PNR &amp; Cancellation</text>
+    <text x="580" y="100" font-size="11" fill="#0284c7">• PNR Status View</text>
+    <text x="580" y="118" font-size="11" fill="#0284c7">• Ticket Cancellation</text>
+    <text x="580" y="136" font-size="11" fill="#0284c7">• Refund Audit Log</text>
+
+    <rect x="750" y="55" width="155" height="95" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="760" y="80" font-size="12" font-weight="bold" fill="#0369a1">Admin Fleet CRUD</text>
+    <text x="760" y="100" font-size="11" fill="#0284c7">• 8 Business Tables</text>
+    <text x="760" y="118" font-size="11" fill="#0284c7">• Route Configuration</text>
+    <text x="760" y="136" font-size="11" fill="#0284c7">• Recharts Analytics</text>
+
+    <rect x="930" y="55" width="145" height="95" rx="6" fill="#fef3c7" stroke="#fde68a"/>
+    <text x="940" y="80" font-size="12" font-weight="bold" fill="#b45309">Database Lab</text>
+    <text x="940" y="100" font-size="11" fill="#d97706">• Q01-Q18 SQL Runner</text>
+    <text x="940" y="118" font-size="11" fill="#d97706">• PL/SQL Procedure Test</text>
+    <text x="940" y="136" font-size="11" fill="#d97706">• Trigger Sync Audit</text>
+  </g>
+
+  <!-- Connection Line Tier 1 -> Tier 2 -->
+  <line x1="600" y1="300" x2="600" y2="360" stroke="#2563eb" stroke-width="2.5" marker-end="url(#flowarrow)"/>
+  <rect x="480" y="318" width="240" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="495" y="334" font-size="11" fill="#1e3a5f" font-weight="bold">REST / JSON APIs (HTTP Port 8080)</text>
+
+  <!-- TIER 2: APPLICATION BACKEND TIER -->
+  <g transform="translate(50, 360)" filter="url(#shadow)">
+    <rect width="1100" height="170" rx="8" fill="#ffffff" stroke="#4ade80" stroke-width="1.5"/>
+    <path d="M 0 8 Q 0 0 8 0 L 1092 0 Q 1100 0 1100 8 L 1100 36 L 0 36 Z" fill="#15803d"/>
+    <text x="20" y="24" fill="#ffffff" font-weight="bold" font-size="14">TIER 2: APPLICATION BUSINESS TIER (Spring Boot 3.2.x + Java 21 LTS + Pure JDBC)</text>
+
+    <!-- Architecture Layers -->
+    <rect x="30" y="55" width="230" height="95" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="40" y="80" font-size="12" font-weight="bold" fill="#166534">10 REST Controllers</text>
+    <text x="40" y="100" font-size="11" fill="#15803d">• ReservationController</text>
+    <text x="40" y="118" font-size="11" fill="#15803d">• Train &amp; ScheduleController</text>
+    <text x="40" y="136" font-size="11" fill="#15803d">• DatabaseLabController</text>
+
+    <rect x="290" y="55" width="230" height="95" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="300" y="80" font-size="12" font-weight="bold" fill="#166534">11 Business Services</text>
+    <text x="300" y="100" font-size="11" fill="#15803d">• Transaction Demarcation</text>
+    <text x="300" y="118" font-size="11" fill="#15803d">• setAutoCommit(false)</text>
+    <text x="300" y="136" font-size="11" fill="#15803d">• Global Exception Mapping</text>
+
+    <rect x="550" y="55" width="250" height="95" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="560" y="80" font-size="12" font-weight="bold" fill="#166534">9 JDBC Repositories</text>
+    <text x="560" y="100" font-size="11" fill="#15803d">• PreparedStatement (Parameterized)</text>
+    <text x="560" y="118" font-size="11" fill="#15803d">• CallableStatement (IN/OUT Stored Procs)</text>
+    <text x="560" y="136" font-size="11" fill="#15803d">• Zero JPA / Zero Hibernate</text>
+
+    <rect x="830" y="55" width="240" height="95" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="840" y="80" font-size="12" font-weight="bold" fill="#166534">HikariCP &amp; Driver</text>
+    <text x="840" y="100" font-size="11" fill="#15803d">• ojdbc11 (Oracle 23c/19c Driver)</text>
+    <text x="840" y="118" font-size="11" fill="#15803d">• Pool Min: 2, Max: 10 Conns</text>
+    <text x="840" y="136" font-size="11" fill="#15803d">• Explicit Redo Commit/Rollback</text>
+  </g>
+
+  <!-- Connection Line Tier 2 -> Tier 3 -->
+  <line x1="600" y1="530" x2="600" y2="590" stroke="#2563eb" stroke-width="2.5" marker-end="url(#flowarrow)"/>
+  <rect x="445" y="548" width="310" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="455" y="564" font-size="11" fill="#1e3a5f" font-weight="bold">OJDBC11 Thin Driver Protocol (TCP/IP Port 1521)</text>
+
+  <!-- TIER 3: ORACLE DATABASE TIER -->
+  <g transform="translate(50, 590)" filter="url(#shadow)">
+    <rect width="1100" height="210" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+    <path d="M 0 8 Q 0 0 8 0 L 1092 0 Q 1100 0 1100 8 L 1100 36 L 0 36 Z" fill="#d97706"/>
+    <text x="20" y="24" fill="#ffffff" font-weight="bold" font-size="14">TIER 3: DATABASE TIER (Oracle Database 19c Enterprise / SQL &amp; PL/SQL)</text>
+
+    <!-- Schema Elements -->
+    <rect x="30" y="55" width="240" height="135" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="40" y="78" font-size="12" font-weight="bold" fill="#92400e">8 Relational Tables</text>
+    <text x="40" y="98" font-size="11" fill="#b45309">1. PASSENGER (Profiles)</text>
+    <text x="40" y="114" font-size="11" fill="#b45309">2. STATION (Nodes)</text>
+    <text x="40" y="130" font-size="11" fill="#b45309">3. TRAIN (Fleet)</text>
+    <text x="40" y="146" font-size="11" fill="#b45309">4. TRAIN_STOP (Route Order)</text>
+    <text x="40" y="162" font-size="11" fill="#b45309">5. TRAIN_SCHEDULE (Runs)</text>
+    <text x="40" y="178" font-size="11" fill="#b45309">6. SEAT, 7. RESERVATION, 8. PAYMENT</text>
+
+    <rect x="300" y="55" width="250" height="135" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="310" y="78" font-size="12" font-weight="bold" fill="#92400e">PL/SQL Stored Procedures</text>
+    <text x="310" y="98" font-size="11" fill="#b45309">• P_BOOK_TICKET (Atomic Hold &amp; PNR)</text>
+    <text x="310" y="116" font-size="11" fill="#b45309">• P_RECORD_PAYMENT (Gateway Log)</text>
+    <text x="310" y="134" font-size="11" fill="#b45309">• P_CANCEL_RESERVATION (Compensating Refund)</text>
+    <text x="310" y="152" font-size="11" fill="#b45309">• P_EXPIRE_STALE_RESERVATIONS (Cursor)</text>
+    <text x="310" y="172" font-size="10" fill="#78350f">[Strictly zero COMMIT inside procedures]</text>
+
+    <rect x="580" y="55" width="240" height="135" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="590" y="78" font-size="12" font-weight="bold" fill="#92400e">Functions &amp; Triggers</text>
+    <text x="590" y="98" font-size="11" fill="#b45309">• F_CALCULATE_FARE (Distance x Rate)</text>
+    <text x="590" y="116" font-size="11" fill="#b45309">• F_AVAILABLE_SEAT_COUNT</text>
+    <text x="590" y="134" font-size="11" fill="#b45309">• F_NET_PAID_AMOUNT (Gross - Refunds)</text>
+    <text x="590" y="152" font-size="11" fill="#b45309">• TRG_VALIDATE_RESERVATION</text>
+    <text x="590" y="170" font-size="11" fill="#b45309">• TRG_SYNC_RESERVATION_ON_PAYMENT</text>
+
+    <rect x="850" y="55" width="220" height="135" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="860" y="78" font-size="12" font-weight="bold" fill="#92400e">Concurrency &amp; Indexes</text>
+    <text x="860" y="98" font-size="11" fill="#b45309">• IDX_ACTIVE_SEAT_RESERVATION</text>
+    <text x="860" y="116" font-size="11" fill="#b45309">• Sparse Unique Index on Active Seats</text>
+    <text x="860" y="134" font-size="11" fill="#b45309">• Pessimistic SELECT FOR UPDATE</text>
+    <text x="860" y="152" font-size="11" fill="#b45309">• Canonical Sched-&gt;Seat-&gt;Res Locking</text>
+    <text x="860" y="170" font-size="11" fill="#b45309">• 4 Materialized Views (V_TRAIN_ROUTE...)</text>
+  </g>
+</svg>

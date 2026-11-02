@@ -1,0 +1,19 @@
+sequenceDiagram
+    autonumber
+    participant Session1 as User A Transaction
+    participant Session2 as User B Transaction
+    participant Sched as TRAIN_SCHEDULE (ID: 2)
+    participant Seat as SEAT (ID: 4)
+
+    Note over Session1,Session2: Both sessions adhere to strict canonical lock order
+    Session1->>Sched: 1. SELECT ... FOR UPDATE (Schedule 2) [LOCK ACQUIRED]
+    Session2->>Sched: 1. SELECT ... FOR UPDATE (Schedule 2) [WAITING ON LOCK]
+    
+    Session1->>Seat: 2. SELECT ... FOR UPDATE (Seat 4) [LOCK ACQUIRED]
+    Session1->>Session1: Insert Reservation & Settle Payment
+    Session1->>Sched: 3. COMMIT (Releases Schedule 2 & Seat 4 Locks)
+    
+    Sched-->>Session2: Lock on Schedule 2 Granted to Session 2
+    Session2->>Seat: 2. Validate Seat 4 (Detects Seat 4 is now Booked!)
+    Session2-->>Session2: Raises ORA-20014: Seat already reserved. ROLLBACK.
+

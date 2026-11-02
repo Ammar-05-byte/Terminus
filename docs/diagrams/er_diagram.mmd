@@ -1,0 +1,79 @@
+erDiagram
+    PASSENGER {
+        NUMBER passenger_id PK
+        VARCHAR2 full_name
+        DATE date_of_birth
+        VARCHAR2 gender
+        VARCHAR2 phone UK
+        VARCHAR2 email UK
+    }
+    STATION {
+        NUMBER station_id PK
+        VARCHAR2 station_code UK
+        VARCHAR2 station_name
+        VARCHAR2 city
+        VARCHAR2 state
+    }
+    TRAIN {
+        NUMBER train_id PK
+        VARCHAR2 train_number UK
+        VARCHAR2 train_name
+        VARCHAR2 train_type
+        VARCHAR2 active_status
+    }
+    TRAIN_STOP {
+        NUMBER train_id PK_FK
+        NUMBER stop_sequence PK
+        NUMBER station_id FK
+        VARCHAR2 arrival_time
+        VARCHAR2 departure_time
+        NUMBER distance_from_origin_km
+    }
+    TRAIN_SCHEDULE {
+        NUMBER schedule_id PK
+        NUMBER train_id FK
+        DATE journey_date
+        TIMESTAMP scheduled_departure
+        TIMESTAMP scheduled_arrival
+        VARCHAR2 schedule_status
+    }
+    SEAT {
+        NUMBER seat_id PK
+        NUMBER train_id FK
+        VARCHAR2 coach_number
+        NUMBER seat_number
+        VARCHAR2 coach_class
+        VARCHAR2 berth_type
+    }
+    RESERVATION {
+        NUMBER reservation_id PK
+        VARCHAR2 pnr UK
+        NUMBER passenger_id FK
+        NUMBER schedule_id FK
+        NUMBER seat_id FK
+        NUMBER source_station_id FK
+        NUMBER destination_station_id FK
+        TIMESTAMP booking_timestamp
+        VARCHAR2 booking_status
+        NUMBER fare_amount
+    }
+    PAYMENT {
+        NUMBER payment_id PK
+        NUMBER reservation_id FK
+        NUMBER amount
+        VARCHAR2 payment_method
+        VARCHAR2 payment_status
+        VARCHAR2 transaction_reference UK
+        TIMESTAMP payment_timestamp
+    }
+    PASSENGER ||--o{ RESERVATION : "books"
+    TRAIN ||--o{ TRAIN_STOP : "has stops"
+    STATION ||--o{ TRAIN_STOP : "served by"
+    TRAIN ||--o{ TRAIN_SCHEDULE : "scheduled as"
+    TRAIN ||--o{ SEAT : "has seats"
+    TRAIN_SCHEDULE ||--o{ RESERVATION : "booked for"
+    SEAT ||--o{ RESERVATION : "allocated to"
+    STATION ||--o{ RESERVATION : "source station"
+    STATION ||--o{ RESERVATION : "destination station"
+    RESERVATION ||--o{ PAYMENT : "paid via"
+

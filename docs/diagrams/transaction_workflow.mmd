@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor Passenger as Passenger (Client)
+    participant Backend as Spring Boot (ReservationRepository)
+    participant Pool as HikariCP Connection Pool
+    participant Oracle as Oracle 19c Engine (P_BOOK_TICKET)
+    participant Trigger as Trigger (TRG_SYNC_RESERVATION)
+    participant FBI as Index (IDX_ACTIVE_SEAT_RESERVATION)
+
+    Passenger->>Backend: POST /api/reservations (PassengerId, SchedId, SeatId, Stations, Card)
+    Backend->>Pool: Borrow Connection
+    Pool-->>Backend: Connection instance
+    Backend->>Backend: conn.setAutoCommit(false) [Begin TX]
+    
+    Backend->>Oracle: CALL P_BOOK_TICKET(in_params..., out_params...)
+    Note over Oracle: Step 1: SELECT train_id, status FROM TRAIN_SCHEDULE FOR UPDATE
+    Note over Oracle: Step 2: Validate Route Stop Order (src_seq < dest_seq)
+    Note over Oracle: Step 3: Validate Seat Ownership (SEAT.train_id = train_id)
+    Note over Oracle: Step 4: Check Existing Active Holds (COUNT(*) = 0)
+    Note over Oracle: Step 5: v_fare := F_CALCULATE_FARE(...)
+    
+    Oracle->>Oracle: INSERT INTO RESERVATION (status='PENDING', fare=v_fare)
+    Oracle->>FBI: Index Entry Evaluated (schedule_id, seat_id)
+    FBI-->>Oracle: Uniqueness Guaranteed (OK)
+    
+    Oracle->>Oracle: CALL P_RECORD_PAYMENT(res_id, fare, 'CARD', 'SUCCESS')
+    Oracle->>Oracle: INSERT INTO PAYMENT (status='SUCCESS', ref='TXN...')
+    
+    Oracle->>Trigger: AFTER INSERT ON PAYMENT fires
+    Trigger->>Oracle: UPDATE RESERVATION SET booking_status='CONFIRMED'
+    
+    Oracle-->>Backend: Return OUT Parameters (PNR, res_id, fare, 'CONFIRMED')
+    Backend->>Backend: conn.commit() [Atomic Commit to Redo Log]
+    Backend->>Pool: conn.setAutoCommit(true) & Return to Pool
+    Backend-->>Passenger: HTTP 201 Created (BookingResponse JSON with PNR)
+

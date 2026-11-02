@@ -1,0 +1,37 @@
+flowchart TB
+    subgraph Tier1 ["Tier 1: Presentation Tier (Client)"]
+        UI_Search["Train Search & Schedule Browser"]
+        UI_Seats["Interactive Visual Seat Layout"]
+        UI_Booking["Passenger Booking & Payment Terminal"]
+        UI_PNR["PNR Status & Cancellation Console"]
+        UI_Admin["Fleet & Infrastructure Admin Dashboard"]
+        UI_Lab["Database Operations Lab & SQL Profiler"]
+    end
+
+    subgraph Tier2 ["Tier 2: Application Tier (Spring Boot / Java 21)"]
+        REST_Layer["REST Controllers\n(ReservationController, TrainController, LabController)"]
+        Service_Layer["Service Layer\n(ReservationService, TrainService, AdminService)"]
+        JDBC_Layer["Native JDBC Repositories\n(ReservationRepository, SeatRepository, ReportRepository)"]
+        HikariPool["HikariCP Connection Pool\n(Min: 2, Max: 10 Conns)"]
+    end
+
+    subgraph Tier3 ["Tier 3: Database Tier (Oracle 19c Enterprise)"]
+        Oracle_Net["Oracle Listener (Port 1521)"]
+        Schema_Tables["8 Normalized Relational Tables\n(PASSENGER, STATION, TRAIN, TRAIN_STOP,\nTRAIN_SCHEDULE, SEAT, RESERVATION, PAYMENT)"]
+        PLSQL_Engine["PL/SQL Procedural Engine\n(P_BOOK_TICKET, P_RECORD_PAYMENT,\nP_CANCEL_RESERVATION, P_EXPIRE_STALE_RESERVATIONS)"]
+        Functions_Triggers["Stored Functions & ECA Triggers\n(F_CALCULATE_FARE, F_AVAILABLE_SEAT_COUNT,\nTRG_VALIDATE_RESERVATION, TRG_SYNC_RESERVATION_ON_PAYMENT)"]
+        Index_Engine["Physical Indexes & Deduplication\n(B-Tree Indexes + Function-Based IDX_ACTIVE_SEAT_RESERVATION)"]
+    end
+
+    Tier1 -->|HTTP / JSON (Port 8080 / 5173)| REST_Layer
+    REST_Layer --> Service_Layer
+    Service_Layer --> JDBC_Layer
+    JDBC_Layer --> HikariPool
+    HikariPool -->|OJDBC11 Thin Protocol TCP/IP| Oracle_Net
+    Oracle_Net --> Schema_Tables
+    Oracle_Net --> PLSQL_Engine
+    PLSQL_Engine --> Functions_Triggers
+    PLSQL_Engine --> Index_Engine
+    Functions_Triggers --> Schema_Tables
+    Index_Engine --> Schema_Tables
+
