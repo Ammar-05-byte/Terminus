@@ -34,7 +34,7 @@ export const AdminPassengersPage: React.FC = () => {
   const [formData, setFormData] = useState<PassengerRequest>({
     fullName: '',
     dateOfBirth: '',
-    gender: 'M',
+    gender: 'Male',
     phone: '',
     email: '',
   });
@@ -60,7 +60,7 @@ export const AdminPassengersPage: React.FC = () => {
     setFormData({
       fullName: '',
       dateOfBirth: '',
-      gender: 'M',
+      gender: 'Male',
       phone: '',
       email: '',
     });
@@ -142,7 +142,11 @@ export const AdminPassengersPage: React.FC = () => {
       header: 'Gender',
       render: (p) => (
         <span className="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700">
-          {p.gender === 'M' ? 'Male' : p.gender === 'F' ? 'Female' : 'Other'}
+          {p.gender === 'M' || p.gender === 'Male'
+            ? 'Male'
+            : p.gender === 'F' || p.gender === 'Female'
+            ? 'Female'
+            : 'Other'}
         </span>
       ),
     },
@@ -266,9 +270,9 @@ export const AdminPassengersPage: React.FC = () => {
                 className="w-full px-3.5 py-2 border border-slate-300 rounded-lg text-sm bg-white"
                 required
               >
-                <option value="M">Male (M)</option>
-                <option value="F">Female (F)</option>
-                <option value="O">Other (O)</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
             </div>
 

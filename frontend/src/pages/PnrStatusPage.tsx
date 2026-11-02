@@ -148,11 +148,11 @@ export const PnrStatusPage: React.FC = () => {
             <div className="relative flex-1">
               <input
                 type="text"
-                placeholder="Enter 10-character PNR (e.g., PNR20261101)..."
+                placeholder="Enter PNR number (e.g., PNR1000000001)..."
                 value={pnrInput}
                 onChange={(e) => setPnrInput(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl font-mono text-base uppercase font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
-                maxLength={12}
+                maxLength={20}
                 required
               />
             </div>

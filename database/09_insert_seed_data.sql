@@ -139,8 +139,53 @@ VALUES (9, '12137', 'Punjab Mail', 'Mail', 'ACTIVE');
 INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
 VALUES (10, '12915', 'Ashram Express', 'Express', 'ACTIVE');
 
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (11, '12952', 'New Delhi Mumbai Rajdhani Express', 'Rajdhani', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (12, '12003', 'Lucknow New Delhi Shatabdi Express', 'Shatabdi', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (13, '12302', 'New Delhi Howrah Rajdhani Express', 'Rajdhani', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (14, '12622', 'New Delhi Chennai Tamil Nadu Express', 'Superfast', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (15, '22692', 'New Delhi Bangalore Rajdhani Express', 'Rajdhani', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (16, '12124', 'Deccan Queen Superfast', 'Superfast', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (17, '12123', 'Deccan Queen Return', 'Superfast', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (18, '12028', 'Bangalore Chennai Shatabdi Express', 'Shatabdi', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (19, '12027', 'Chennai Bangalore Shatabdi Express', 'Shatabdi', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (20, '12841', 'Coromandel Express', 'Superfast', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (21, '12842', 'Howrah Mail Express', 'Mail', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (22, '11041', 'Mumbai Chennai Express', 'Express', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (23, '11042', 'Chennai Mumbai Express', 'Express', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (24, '19715', 'Jaipur Lucknow Express', 'Express', 'ACTIVE');
+
+INSERT INTO TRAIN (train_id, train_number, train_name, train_type, active_status)
+VALUES (25, '19716', 'Lucknow Jaipur Express', 'Express', 'ACTIVE');
+
 -- ----------------------------------------------------------------------------
--- 4. SEED: TRAIN_STOP (41 Route Stops)
+-- 4. SEED: TRAIN_STOP (Route Stops connecting all 13 stations)
 -- ----------------------------------------------------------------------------
 PROMPT Populating TRAIN_STOP...
 -- Train 1: 12951 Mumbai Rajdhani (BCT -> ADI -> JP -> NDLS)
@@ -149,10 +194,11 @@ INSERT INTO TRAIN_STOP VALUES (1, 2, 7, '23:30', '23:40', 492);
 INSERT INTO TRAIN_STOP VALUES (1, 3, 6, '04:15', '04:25', 985);
 INSERT INTO TRAIN_STOP VALUES (1, 4, 1, '08:35', NULL, 1384);
 
--- Train 2: 12004 Lucknow Shatabdi (NDLS -> AGC -> LKO)
+-- Train 2: 12004 Lucknow Shatabdi (NDLS -> ALJN -> AGC -> LKO)
 INSERT INTO TRAIN_STOP VALUES (2, 1, 1, NULL, '06:10', 0);
-INSERT INTO TRAIN_STOP VALUES (2, 2, 11, '07:50', '07:55', 195);
-INSERT INTO TRAIN_STOP VALUES (2, 3, 8, '12:40', NULL, 511);
+INSERT INTO TRAIN_STOP VALUES (2, 2, 13, '07:30', '07:35', 131);
+INSERT INTO TRAIN_STOP VALUES (2, 3, 11, '08:50', '08:55', 195);
+INSERT INTO TRAIN_STOP VALUES (2, 4, 8, '12:40', NULL, 511);
 
 -- Train 3: 12301 Howrah Rajdhani (HWH -> LKO -> NDLS)
 INSERT INTO TRAIN_STOP VALUES (3, 1, 4, NULL, '16:50', 0);
@@ -175,11 +221,12 @@ INSERT INTO TRAIN_STOP VALUES (6, 1, 1, NULL, '06:00', 0);
 INSERT INTO TRAIN_STOP VALUES (6, 2, 11, '07:50', '07:55', 195);
 INSERT INTO TRAIN_STOP VALUES (6, 3, 12, '14:05', NULL, 707);
 
--- Train 7: 22691 Bangalore Rajdhani (BLR -> BPL -> AGC -> NDLS)
-INSERT INTO TRAIN_STOP VALUES (7, 1, 5, NULL, '20:00', 0);
-INSERT INTO TRAIN_STOP VALUES (7, 2, 12, '18:20', '18:30', 1660);
-INSERT INTO TRAIN_STOP VALUES (7, 3, 11, '02:15', '02:20', 2165);
-INSERT INTO TRAIN_STOP VALUES (7, 4, 1, '05:55', NULL, 2360);
+-- Train 7: 22691 Bangalore Rajdhani (SBC -> BLR -> BPL -> AGC -> NDLS)
+INSERT INTO TRAIN_STOP VALUES (7, 1, 10, NULL, '19:45', 0);
+INSERT INTO TRAIN_STOP VALUES (7, 2, 5, '20:00', '20:10', 5);
+INSERT INTO TRAIN_STOP VALUES (7, 3, 12, '18:20', '18:30', 1488);
+INSERT INTO TRAIN_STOP VALUES (7, 4, 11, '02:15', '02:20', 2012);
+INSERT INTO TRAIN_STOP VALUES (7, 5, 1, '05:55', NULL, 2367);
 
 -- Train 8: 12953 August Kranti (BCT -> PUNE -> BPL -> NDLS)
 INSERT INTO TRAIN_STOP VALUES (8, 1, 2, NULL, '17:40', 0);
@@ -199,25 +246,116 @@ INSERT INTO TRAIN_STOP VALUES (10, 1, 7, NULL, '19:15', 0);
 INSERT INTO TRAIN_STOP VALUES (10, 2, 6, '04:20', '04:30', 625);
 INSERT INTO TRAIN_STOP VALUES (10, 3, 1, '10:00', NULL, 933);
 
+-- Train 11: 12952 NDLS to BCT Rajdhani (NDLS -> AGC -> JP -> ADI -> BCT)
+INSERT INTO TRAIN_STOP VALUES (11, 1, 1, NULL, '16:55', 0);
+INSERT INTO TRAIN_STOP VALUES (11, 2, 11, '18:50', '18:55', 195);
+INSERT INTO TRAIN_STOP VALUES (11, 3, 6, '21:05', '21:15', 436);
+INSERT INTO TRAIN_STOP VALUES (11, 4, 7, '03:15', '03:25', 928);
+INSERT INTO TRAIN_STOP VALUES (11, 5, 2, '08:35', NULL, 1384);
+
+-- Train 12: 12003 Lucknow New Delhi Shatabdi (LKO -> AGC -> ALJN -> NDLS)
+INSERT INTO TRAIN_STOP VALUES (12, 1, 8, NULL, '15:30', 0);
+INSERT INTO TRAIN_STOP VALUES (12, 2, 11, '19:15', '19:20', 316);
+INSERT INTO TRAIN_STOP VALUES (12, 3, 13, '20:30', '20:35', 380);
+INSERT INTO TRAIN_STOP VALUES (12, 4, 1, '22:15', NULL, 511);
+
+-- Train 13: 12302 NDLS to Howrah Rajdhani (NDLS -> LKO -> HWH)
+INSERT INTO TRAIN_STOP VALUES (13, 1, 1, NULL, '16:50', 0);
+INSERT INTO TRAIN_STOP VALUES (13, 2, 8, '23:35', '23:45', 511);
+INSERT INTO TRAIN_STOP VALUES (13, 3, 4, '09:55', NULL, 1445);
+
+-- Train 14: 12622 NDLS to Chennai Tamil Nadu Express (NDLS -> AGC -> BPL -> MAS)
+INSERT INTO TRAIN_STOP VALUES (14, 1, 1, NULL, '21:05', 0);
+INSERT INTO TRAIN_STOP VALUES (14, 2, 11, '23:25', '23:30', 195);
+INSERT INTO TRAIN_STOP VALUES (14, 3, 12, '06:45', '06:55', 704);
+INSERT INTO TRAIN_STOP VALUES (14, 4, 3, '06:15', NULL, 2185);
+
+-- Train 15: 22692 NDLS to Bangalore Rajdhani (NDLS -> AGC -> BPL -> BLR -> SBC)
+INSERT INTO TRAIN_STOP VALUES (15, 1, 1, NULL, '20:45', 0);
+INSERT INTO TRAIN_STOP VALUES (15, 2, 11, '23:00', '23:05', 195);
+INSERT INTO TRAIN_STOP VALUES (15, 3, 12, '05:30', '05:35', 704);
+INSERT INTO TRAIN_STOP VALUES (15, 4, 5, '05:20', '05:25', 2362);
+INSERT INTO TRAIN_STOP VALUES (15, 5, 10, '05:40', NULL, 2367);
+
+-- Train 16: 12124 Deccan Queen (PUNE -> BCT)
+INSERT INTO TRAIN_STOP VALUES (16, 1, 9, NULL, '07:15', 0);
+INSERT INTO TRAIN_STOP VALUES (16, 2, 2, '10:25', NULL, 192);
+
+-- Train 17: 12123 Deccan Queen Return (BCT -> PUNE)
+INSERT INTO TRAIN_STOP VALUES (17, 1, 2, NULL, '17:10', 0);
+INSERT INTO TRAIN_STOP VALUES (17, 2, 9, '20:25', NULL, 192);
+
+-- Train 18: 12028 Bangalore Chennai Shatabdi (SBC -> BLR -> MAS)
+INSERT INTO TRAIN_STOP VALUES (18, 1, 10, NULL, '06:00', 0);
+INSERT INTO TRAIN_STOP VALUES (18, 2, 5, '06:10', '06:15', 5);
+INSERT INTO TRAIN_STOP VALUES (18, 3, 3, '11:00', NULL, 358);
+
+-- Train 19: 12027 Chennai Bangalore Shatabdi (MAS -> BLR -> SBC)
+INSERT INTO TRAIN_STOP VALUES (19, 1, 3, NULL, '17:30', 0);
+INSERT INTO TRAIN_STOP VALUES (19, 2, 5, '22:15', '22:20', 353);
+INSERT INTO TRAIN_STOP VALUES (19, 3, 10, '22:30', NULL, 358);
+
+-- Train 20: 12841 Coromandel Express (HWH -> MAS)
+INSERT INTO TRAIN_STOP VALUES (20, 1, 4, NULL, '15:20', 0);
+INSERT INTO TRAIN_STOP VALUES (20, 2, 3, '17:00', NULL, 1662);
+
+-- Train 21: 12842 Howrah Mail (MAS -> HWH)
+INSERT INTO TRAIN_STOP VALUES (21, 1, 3, NULL, '07:00', 0);
+INSERT INTO TRAIN_STOP VALUES (21, 2, 4, '10:40', NULL, 1662);
+
+-- Train 22: 11041 Mumbai Chennai Express (BCT -> PUNE -> BLR -> MAS)
+INSERT INTO TRAIN_STOP VALUES (22, 1, 2, NULL, '14:00', 0);
+INSERT INTO TRAIN_STOP VALUES (22, 2, 9, '17:20', '17:25', 192);
+INSERT INTO TRAIN_STOP VALUES (22, 3, 5, '06:30', '06:40', 1018);
+INSERT INTO TRAIN_STOP VALUES (22, 4, 3, '11:55', NULL, 1281);
+
+-- Train 23: 11042 Chennai Mumbai Express (MAS -> BLR -> PUNE -> BCT)
+INSERT INTO TRAIN_STOP VALUES (23, 1, 3, NULL, '12:20', 0);
+INSERT INTO TRAIN_STOP VALUES (23, 2, 5, '17:40', '17:50', 263);
+INSERT INTO TRAIN_STOP VALUES (23, 3, 9, '07:00', '07:05', 1089);
+INSERT INTO TRAIN_STOP VALUES (23, 4, 2, '10:30', NULL, 1281);
+
+-- Train 24: 19715 Jaipur Lucknow Express (JP -> AGC -> ALJN -> LKO)
+INSERT INTO TRAIN_STOP VALUES (24, 1, 6, NULL, '21:05', 0);
+INSERT INTO TRAIN_STOP VALUES (24, 2, 11, '01:50', '01:55', 241);
+INSERT INTO TRAIN_STOP VALUES (24, 3, 13, '03:10', '03:15', 332);
+INSERT INTO TRAIN_STOP VALUES (24, 4, 8, '08:40', NULL, 574);
+
+-- Train 25: 19716 Lucknow Jaipur Express (LKO -> ALJN -> AGC -> JP)
+INSERT INTO TRAIN_STOP VALUES (25, 1, 8, NULL, '16:55', 0);
+INSERT INTO TRAIN_STOP VALUES (25, 2, 13, '22:10', '22:15', 242);
+INSERT INTO TRAIN_STOP VALUES (25, 3, 11, '23:30', '23:35', 333);
+INSERT INTO TRAIN_STOP VALUES (25, 4, 6, '04:25', NULL, 574);
+
 -- ----------------------------------------------------------------------------
--- 5. SEED: TRAIN_SCHEDULE (16 Schedules - Dynamic dates based on SYSDATE)
+-- 5. SEED: TRAIN_SCHEDULE (Dynamic daily schedules across 90 days for all trains)
 -- ----------------------------------------------------------------------------
 PROMPT Populating TRAIN_SCHEDULE...
-INSERT INTO TRAIN_SCHEDULE VALUES (1, 1, TRUNC(SYSDATE)+1, TRUNC(SYSDATE)+1 + 17/24, TRUNC(SYSDATE)+2 + 8.5/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (2, 1, TRUNC(SYSDATE)+3, TRUNC(SYSDATE)+3 + 17/24, TRUNC(SYSDATE)+4 + 8.5/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (3, 2, TRUNC(SYSDATE)+1, TRUNC(SYSDATE)+1 + 6.167/24, TRUNC(SYSDATE)+1 + 12.667/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (4, 2, TRUNC(SYSDATE)+2, TRUNC(SYSDATE)+2 + 6.167/24, TRUNC(SYSDATE)+2 + 12.667/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (5, 3, TRUNC(SYSDATE)+1, TRUNC(SYSDATE)+1 + 16.833/24, TRUNC(SYSDATE)+2 + 10.083/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (6, 3, TRUNC(SYSDATE)+4, TRUNC(SYSDATE)+4 + 16.833/24, TRUNC(SYSDATE)+5 + 10.083/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (7, 4, TRUNC(SYSDATE)+2, TRUNC(SYSDATE)+2 + 22/24, TRUNC(SYSDATE)+4 + 6.5/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (8, 5, TRUNC(SYSDATE)+3, TRUNC(SYSDATE)+3 + 12/24, TRUNC(SYSDATE)+3 + 23.917/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (9, 6, TRUNC(SYSDATE)+1, TRUNC(SYSDATE)+1 + 6/24, TRUNC(SYSDATE)+1 + 14.083/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (10, 6, TRUNC(SYSDATE)+5, TRUNC(SYSDATE)+5 + 6/24, TRUNC(SYSDATE)+5 + 14.083/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (11, 7, TRUNC(SYSDATE)+2, TRUNC(SYSDATE)+2 + 20/24, TRUNC(SYSDATE)+4 + 5.917/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (12, 8, TRUNC(SYSDATE)+3, TRUNC(SYSDATE)+3 + 17.667/24, TRUNC(SYSDATE)+4 + 16.833/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (13, 9, TRUNC(SYSDATE)+1, TRUNC(SYSDATE)+1 + 19.583/24, TRUNC(SYSDATE)+2 + 21.5/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (14, 10, TRUNC(SYSDATE)+2, TRUNC(SYSDATE)+2 + 19.25/24, TRUNC(SYSDATE)+3 + 10/24, 'SCHEDULED');
-INSERT INTO TRAIN_SCHEDULE VALUES (15, 1, TRUNC(SYSDATE)-1, TRUNC(SYSDATE)-1 + 17/24, TRUNC(SYSDATE) + 8.5/24, 'COMPLETED');
+DECLARE
+    v_sched_id NUMBER := 0;
+BEGIN
+    FOR day_offset IN 0..90 LOOP
+        FOR t IN 1..25 LOOP
+            v_sched_id := v_sched_id + 1;
+            BEGIN
+                INSERT INTO TRAIN_SCHEDULE (
+                    SCHEDULE_ID, TRAIN_ID, JOURNEY_DATE,
+                    SCHEDULED_DEPARTURE, SCHEDULED_ARRIVAL, SCHEDULE_STATUS
+                ) VALUES (
+                    v_sched_id,
+                    t,
+                    TRUNC(SYSDATE) + day_offset,
+                    TRUNC(SYSDATE) + day_offset + 8/24,
+                    TRUNC(SYSDATE) + day_offset + 20/24,
+                    'SCHEDULED'
+                );
+            EXCEPTION
+                WHEN DUP_VAL_ON_INDEX THEN NULL;
+            END;
+        END LOOP;
+    END LOOP;
+END;
+/
 INSERT INTO TRAIN_SCHEDULE VALUES (16, 2, TRUNC(SYSDATE), TRUNC(SYSDATE) + 6.167/24, TRUNC(SYSDATE) + 12.667/24, 'RUNNING');
 
 -- ----------------------------------------------------------------------------
@@ -303,6 +441,27 @@ INSERT INTO SEAT VALUES (57, 10, 'S1', 1, 'SL', 'LOWER');
 INSERT INTO SEAT VALUES (58, 10, 'S1', 2, 'SL', 'MIDDLE');
 INSERT INTO SEAT VALUES (59, 10, 'D1', 1, '2S', 'WINDOW');
 INSERT INTO SEAT VALUES (60, 10, 'D1', 2, '2S', 'AISLE');
+
+-- Trains 11 to 25 (6 seats per train)
+DECLARE
+    v_seat_id NUMBER := 60;
+BEGIN
+    FOR t IN 11..25 LOOP
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'H1', 1, '1A', 'LOWER');
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'A1', 1, '2A', 'LOWER');
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'A1', 2, '2A', 'UPPER');
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'B1', 1, '3A', 'LOWER');
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'B1', 2, '3A', 'SIDE_LOWER');
+        v_seat_id := v_seat_id + 1;
+        INSERT INTO SEAT VALUES (v_seat_id, t, 'S1', 1, 'SL', 'LOWER');
+    END LOOP;
+END;
+/
 
 -- ----------------------------------------------------------------------------
 -- 7. SEED: RESERVATION (15 Records)

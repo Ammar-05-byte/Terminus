@@ -175,6 +175,12 @@ public class ScheduleRepository {
         return jdbcTemplate.update(sql, id);
     }
 
+    public int countByDate(LocalDate date) {
+        String sql = "SELECT COUNT(*) FROM TRAIN_SCHEDULE WHERE JOURNEY_DATE = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, Date.valueOf(date));
+        return count != null ? count : 0;
+    }
+
     public long count() {
         String sql = "SELECT COUNT(*) FROM TRAIN_SCHEDULE";
         Long count = jdbcTemplate.queryForObject(sql, Long.class);

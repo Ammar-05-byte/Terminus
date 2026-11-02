@@ -108,18 +108,18 @@ export const HomePage: React.FC = () => {
             <div>
               <h3 className="text-lg font-bold">Have a Ticket? Check PNR Status</h3>
               <p className="text-xs text-amber-100 mt-0.5">
-                Enter your 10-character PNR to check real-time reservation status and coach berth.
+                Enter your PNR (e.g. PNR1000000001) to check real-time reservation status and coach berth.
               </p>
             </div>
           </div>
           <form onSubmit={handlePnrSubmit} className="flex items-center gap-2 w-full md:w-auto">
             <input
               type="text"
-              placeholder="Enter 10-digit PNR"
+              placeholder="e.g. PNR1000000001"
               value={pnrInput}
               onChange={(e) => setPnrInput(e.target.value)}
               className="px-4 py-2.5 rounded-xl bg-white text-slate-800 placeholder-slate-400 text-sm font-mono uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-amber-300 w-full md:w-56"
-              maxLength={10}
+              maxLength={20}
               required
             />
             <Button

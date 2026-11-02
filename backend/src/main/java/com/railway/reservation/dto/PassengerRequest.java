@@ -28,8 +28,8 @@ public class PassengerRequest {
     @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
 
-    @NotBlank(message = "Gender is required (M, F, O)")
-    @Pattern(regexp = "^[MFO]$", message = "Gender must be 'M', 'F', or 'O'")
+    @NotBlank(message = "Gender is required (Male, Female, Other)")
+    @Pattern(regexp = "^(?i)(Male|Female|Other|M|F|O)$", message = "Gender must be 'Male', 'Female', or 'Other'")
     private String gender;
 
     @NotBlank(message = "Phone number is required")

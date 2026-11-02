@@ -42,7 +42,7 @@ public class PassengerService {
         Passenger passenger = Passenger.builder()
                 .fullName(request.getFullName())
                 .dateOfBirth(request.getDateOfBirth())
-                .gender(request.getGender().toUpperCase())
+                .gender(normalizeGender(request.getGender()))
                 .phone(request.getPhone())
                 .email(request.getEmail().toLowerCase())
                 .build();
@@ -53,14 +53,34 @@ public class PassengerService {
     public Passenger updatePassenger(Long id, PassengerRequest request) {
         Passenger existing = getPassengerById(id);
 
+        passengerRepository.findByPhone(request.getPhone()).ifPresent(p -> {
+            if (!p.getPassengerId().equals(id)) {
+                throw new DuplicateResourceException("Passenger", "phone", request.getPhone());
+            }
+        });
+
+        passengerRepository.findByEmail(request.getEmail()).ifPresent(p -> {
+            if (!p.getPassengerId().equals(id)) {
+                throw new DuplicateResourceException("Passenger", "email", request.getEmail());
+            }
+        });
+
         existing.setFullName(request.getFullName());
         existing.setDateOfBirth(request.getDateOfBirth());
-        existing.setGender(request.getGender().toUpperCase());
+        existing.setGender(normalizeGender(request.getGender()));
         existing.setPhone(request.getPhone());
         existing.setEmail(request.getEmail().toLowerCase());
 
         passengerRepository.update(existing);
         return existing;
+    }
+
+    private String normalizeGender(String g) {
+        if (g == null) return "Other";
+        String upper = g.trim().toUpperCase();
+        if (upper.equals("M") || upper.equals("MALE")) return "Male";
+        if (upper.equals("F") || upper.equals("FEMALE")) return "Female";
+        return "Other";
     }
 
     public void deletePassenger(Long id) {

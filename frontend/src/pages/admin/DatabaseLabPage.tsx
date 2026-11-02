@@ -464,7 +464,7 @@ export const DatabaseLabPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. PNR20261101"
+                    placeholder="e.g. PNR1000000001"
                     value={cancelPnr}
                     onChange={(e) => setCancelPnr(e.target.value.toUpperCase())}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono text-sm uppercase"
@@ -731,7 +731,7 @@ export const DatabaseLabPage: React.FC = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. PNR20261101"
+                      placeholder="e.g. PNR1000000001"
                       value={triggerPnr}
                       onChange={(e) => setTriggerPnr(e.target.value.toUpperCase())}
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono text-sm uppercase"

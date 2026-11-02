@@ -35,7 +35,7 @@ export const AdminTrainsPage: React.FC = () => {
   const [formData, setFormData] = useState<TrainRequest>({
     trainNumber: '',
     trainName: '',
-    trainType: 'EXPRESS',
+    trainType: 'Express',
     activeStatus: 'ACTIVE',
   });
 
@@ -60,7 +60,7 @@ export const AdminTrainsPage: React.FC = () => {
     setFormData({
       trainNumber: '',
       trainName: '',
-      trainType: 'EXPRESS',
+      trainType: 'Express',
       activeStatus: 'ACTIVE',
     });
     setIsModalOpen(true);
@@ -270,11 +270,13 @@ export const AdminTrainsPage: React.FC = () => {
                   className="w-full px-3.5 py-2 border border-slate-300 rounded-lg text-sm bg-white"
                   required
                 >
-                  <option value="EXPRESS">EXPRESS</option>
-                  <option value="SUPERFAST">SUPERFAST</option>
-                  <option value="RAJDHANI">RAJDHANI</option>
-                  <option value="SHATABDI">SHATABDI</option>
-                  <option value="VANDE_BHARAT">VANDE BHARAT</option>
+                  <option value="Express">Express</option>
+                  <option value="Superfast">Superfast</option>
+                  <option value="Rajdhani">Rajdhani</option>
+                  <option value="Shatabdi">Shatabdi</option>
+                  <option value="Duronto">Duronto</option>
+                  <option value="Mail">Mail</option>
+                  <option value="Local">Local</option>
                 </select>
               </div>
 

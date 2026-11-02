@@ -61,7 +61,7 @@ export const BookingPage: React.FC = () => {
   const [newPassenger, setNewPassenger] = useState({
     fullName: '',
     dateOfBirth: '',
-    gender: 'M',
+    gender: 'Male',
     phone: '',
     email: '',
   });
@@ -297,7 +297,11 @@ export const BookingPage: React.FC = () => {
                       </div>
                       <div>
                         <span className="text-slate-400 block">Gender:</span>
-                        {activePassenger.gender === 'M' ? 'Male' : activePassenger.gender === 'F' ? 'Female' : 'Other'}
+                        {activePassenger.gender === 'M' || activePassenger.gender === 'Male'
+                          ? 'Male'
+                          : activePassenger.gender === 'F' || activePassenger.gender === 'Female'
+                          ? 'Female'
+                          : 'Other'}
                       </div>
                       <div>
                         <span className="text-slate-400 block">Date of Birth:</span>
@@ -370,9 +374,9 @@ export const BookingPage: React.FC = () => {
                       className="w-full px-3.5 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 bg-white"
                       required
                     >
-                      <option value="M">Male (M)</option>
-                      <option value="F">Female (F)</option>
-                      <option value="O">Other (O)</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
